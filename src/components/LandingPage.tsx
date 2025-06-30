@@ -19,9 +19,14 @@ const LandingPage = ({ onRequestClick }: LandingPageProps) => {
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       </MapContainer>
 
-      <Link to="/signup" className="absolute top-4 right-4 z-20 text-white font-semibold">
-        Sign Up
-      </Link>
+      <div className="absolute top-4 right-4 z-20 flex gap-4">
+        <Link to="/login" className="text-white font-semibold">
+          Log In
+        </Link>
+        <Link to="/signup" className="text-white font-semibold">
+          Sign Up
+        </Link>
+      </div>
 
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center">
         <h1 className="text-white text-8xl md:text-9xl font-bold mb-4 tracking-wider">
