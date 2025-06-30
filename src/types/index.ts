@@ -19,6 +19,7 @@ export interface Provider {
   hourlyRate: string;
   verified: boolean;
   avatar: string;
+  available?: boolean;
 }
 
 export interface Application {

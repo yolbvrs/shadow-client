@@ -45,7 +45,8 @@ export const mockProviders: Provider[] = [
     specialties: ['Executive Protection', 'Event Security', 'Threat Assessment'],
     hourlyRate: '$120',
     verified: true,
-    avatar: '/placeholder.svg'
+    avatar: '/placeholder.svg',
+    available: true
   },
   {
     id: '2',
@@ -55,7 +56,8 @@ export const mockProviders: Provider[] = [
     specialties: ['Corporate Security', 'Surveillance', 'Risk Management'],
     hourlyRate: '$85',
     verified: true,
-    avatar: '/placeholder.svg'
+    avatar: '/placeholder.svg',
+    available: false
   },
   {
     id: '3',
@@ -65,6 +67,7 @@ export const mockProviders: Provider[] = [
     specialties: ['Personal Protection', 'Armed Security', 'Investigation'],
     hourlyRate: '$95',
     verified: true,
-    avatar: '/placeholder.svg'
+    avatar: '/placeholder.svg',
+    available: true
   }
 ];
