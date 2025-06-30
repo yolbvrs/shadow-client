@@ -11,15 +11,11 @@ const LandingPage = ({ onRequestClick }: LandingPageProps) => {
       <MapContainer
         center={[20, 0]}
         zoom={2}
-        scrollWheelZoom={false}
-        doubleClickZoom={false}
-        dragging={false}
-        zoomControl={false}
-        touchZoom={false}
-        className="absolute inset-0 z-0 grayscale"
+        scrollWheelZoom
+        className="absolute inset-0 z-0"
         attributionControl={false}
       >
-        <TileLayer url="https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png" />
+        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       </MapContainer>
 
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center">
