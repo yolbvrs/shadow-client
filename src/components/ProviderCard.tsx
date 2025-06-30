@@ -13,7 +13,11 @@ interface ProviderCardProps {
 
 export const ProviderCard = ({ provider, onHire, showHireButton = true }: ProviderCardProps) => {
   return (
-    <Card className="hover:shadow-lg transition-shadow">
+    <Card
+      className={`hover:shadow-lg transition-shadow ${
+        provider.available ? 'border-green-500' : 'opacity-70'
+      }`}
+    >
       <CardHeader>
         <div className="flex items-center gap-3">
           <Avatar className="w-12 h-12">
@@ -32,6 +36,11 @@ export const ProviderCard = ({ provider, onHire, showHireButton = true }: Provid
               {provider.rating} • {provider.experience}
             </div>
           </div>
+          {provider.available && (
+            <Badge variant="success" size="sm" className="ml-auto">
+              Available
+            </Badge>
+          )}
         </div>
       </CardHeader>
       <CardContent>
@@ -47,12 +56,13 @@ export const ProviderCard = ({ provider, onHire, showHireButton = true }: Provid
           ))}
         </div>
         {showHireButton && (
-          <Button 
-            onClick={() => onHire?.(provider.id)} 
+          <Button
+            onClick={() => provider.available && onHire?.(provider.id)}
             className="w-full"
             variant="outline"
+            disabled={!provider.available}
           >
-            Contact Provider
+            {provider.available ? 'Contact Provider' : 'Unavailable'}
           </Button>
         )}
       </CardContent>
