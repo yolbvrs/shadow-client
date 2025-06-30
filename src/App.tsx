@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/components/theme-provider";
 import Index from "./pages/Index";
+import SignUp from "./pages/SignUp";
 import NotFound from "./pages/NotFound";
 import AvailableProviders from "./pages/AvailableProviders";
 
@@ -19,7 +20,8 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Index />} />
+            <Route path="/" element={<SignUp />} />
+            <Route path="/app" element={<Index />} />
             <Route path="/providers" element={<AvailableProviders />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
