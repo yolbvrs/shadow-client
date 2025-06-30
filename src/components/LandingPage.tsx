@@ -1,12 +1,29 @@
 import { Button } from '@/components/ui/button';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import LoadingOverlay from './LoadingOverlay';
 
 interface LandingPageProps {
   onRequestClick: () => void;
 }
 
 const LandingPage = ({ onRequestClick }: LandingPageProps) => {
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (!loading) return;
+    const timer = setTimeout(() => {
+      onRequestClick();
+      setLoading(false);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, [loading, onRequestClick]);
+
+  const handleClick = () => {
+    setLoading(true);
+  };
+
   return (
     <div className="relative min-h-screen">
       <MapContainer
@@ -36,13 +53,14 @@ const LandingPage = ({ onRequestClick }: LandingPageProps) => {
           The Security Marketplace
         </p>
         <Button
-          onClick={onRequestClick}
+          onClick={handleClick}
           size="lg"
           className="bg-white text-black hover:bg-gray-200 px-8 py-4 text-xl font-semibold"
         >
           REQUEST
         </Button>
       </div>
+      <LoadingOverlay show={loading} />
     </div>
   );
 };
